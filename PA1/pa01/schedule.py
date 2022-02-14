@@ -58,7 +58,7 @@ class Schedule():
 
     # author: Yiwen Luo
     def title(self, phrase):
-        return Schedule([course for course in self.courses if phrase in course['title']])
+        return Schedule([course for course in self.courses if phrase in course['name']])
 
     # author: Yiwen
     # classes that are currently full or only has capacity of less or equal to n

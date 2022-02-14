@@ -29,7 +29,7 @@ def topmenu():
     topmenu is the top level loop of the course search app
     '''
     global schedule
-    while True:         
+    while True:
         command = input(">> (h for help) ")
         if command=='quit':
             return
@@ -47,18 +47,27 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
-            
+
         #author: Jiefang Li
         #not sure if this is correct ):
-        elif command in ['t', 'title'] :
+        elif command in ['ti', 'title'] :
             phrase = input("enter a phrase:")
-            schedule = schedule.desciption(phrase in schedule.desciption)
+            schedule = schedule.title(phrase)
         #author: Jiefang Li
         #filter by course status (either open or closed)
         elif command in ['sta','status']:
              status = input("enter a phrase(Open/Closed): ")
              schedule = schedule.status_text([status])
-             
+        #author Yiwen
+        elif command in ['d', 'description']:
+            phrase = input("enter a phrase(Open/Closed): ")
+            schedule = schedule.description(phrase)
+        #author Yiwen
+        # filter by last name of the instructor:
+        elif command in ['ln', 'lastname']:
+            lastname = input("enter last name of instructor: ")
+            schedule = schedule.lastname(name)
+        elif command in
         else:
             print('command',command,'is not supported')
             continue
@@ -71,11 +80,10 @@ def topmenu():
 
 def print_course(course):
     '''
-    print_course prints a brief description of the course 
+    print_course prints a brief description of the course
     '''
     print(course['subject'],course['coursenum'],course['section'],
           course['name'],course['term'],course['instructor'])
 
 if __name__ == '__main__':
     topmenu()
-
