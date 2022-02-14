@@ -58,6 +58,7 @@ def topmenu():
         elif command in ['sta','status']:
              status = input("enter a phrase(Open/Closed): ")
              schedule = schedule.status_text([status])
+<<<<<<< HEAD
         #author Yiwen
         elif command in ['d', 'description']:
             phrase = input("enter a phrase(Open/Closed): ")
@@ -68,6 +69,21 @@ def topmenu():
             lastname = input("enter last name of instructor: ")
             schedule = schedule.lastname(name)
         elif command in
+=======
+             
+        #author: Huijie
+        #filter by course subject and number(in the form of 'COSI 103A')
+        elif command in ['c', 'course']:
+            course = input("enter a course number(in the form of 'COSI 103A'):")
+            ans = number.split(' ')
+            subject = ans[0]
+            coursenum = ans[1]
+            schedule = schedule.subject([subject])
+            schedule = schedule.coursenum([coursenum])
+            
+            
+           
+>>>>>>> c28a25aae6aa2574db25d2c8d8e2cf464c246016
         else:
             print('command',command,'is not supported')
             continue

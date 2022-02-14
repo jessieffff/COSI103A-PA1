@@ -64,3 +64,17 @@ class Schedule():
     # classes that are currently full or only has capacity of less or equal to n
     def capacity_less_than(self, capacity):
         return Schedule([course for course in self.courses if course['enrolled'] >= course['limit'] - capture ])
+    
+    
+    
+    # author: Huijie
+    def day(self, weekday):
+        '''day filters the courses containing the specific instruction days. weekday should be in format of ['m', 'w', ...] '''
+        return Schedule([course for course in self.courses if len(course['times'])!=0 and all(x in course['times'][0].get('days') for x in weekday)])
+    
+    # author: Huijie
+    def coursenum(self, coursenumber):
+        ''' coursenum filters the courses by coursenum '''
+        return Schedule([course for course in self.courses if course['coursenum'] in coursenumber])
+    
+    
