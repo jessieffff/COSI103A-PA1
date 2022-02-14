@@ -45,13 +45,22 @@ class Schedule():
 
     def sort(self,field):
         if field=='subject':
-            return Schedule(sorted(self.courses, key= lambda course: course['subject']))
+            return Schedule(sorted(self.courses, key= lambda course: course['name']))
         else:
             print("can't sort by "+str(field)+" yet")
             return self
-        
+
+
     #author: Jiefang Li
     def description(self, phrase):
         if phrase in self.descriptiion:
             return self
- 
+
+    # author: Yiwen Luo
+    def title(self, phrase):
+        return Schedule([course for course in self.courses if phrase in course['title']])
+
+    # author: Yiwen
+    # classes that are currently full or only has capacity of less or equal to n
+    def capacity_less_than(self, capacity):
+        return Schedule([course for course in self.courses if course['enrolled'] >= course['limit'] - capture ])
