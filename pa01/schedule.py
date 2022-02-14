@@ -78,23 +78,3 @@ class Schedule():
         return Schedule([course for course in self.courses if course['coursenum'] in coursenumber])
     
     
-    #author: Qing Liu
-    def instructor(self, lastNameOrEmails):
-        # First try last name
-        schedule = self.lastname(lastNameOrEmails)
-        if len(schedule.courses) > 0:
-            return schedule
-        
-        # Second try email
-        schedule = self.email(lastNameOrEmails)
-        return schedule
-
-    #author: Qing Liu
-    def coursenum(self, coursenums):
-        schedule = self.coursenums(coursenums)
-        return schedule
-    
-    #author: Qing Liu
-    def coursenums(self,coursenums):
-        ''' email returns the courses by a particular course number'''
-        return Schedule([course for course in self.courses if course['coursenum'] in coursenums])

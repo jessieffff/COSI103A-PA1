@@ -47,16 +47,7 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
-        #author: Qing Liu
-        #enter an instructor
-        elif command in ['i','instructor']:
-            instructor = input("enter a instructor:")
-            schedule = schedule.instructor([instructor]) 
-        #author: Qing Liu
-        #enter an instructor
-        elif command in ['coursenum']:
-            coursenum = input("enter a coursenum:")
-            schedule = schedule.coursenum([coursenum]) 
+
         #author: Jiefang Li
         #not sure if this is correct ):
         elif command in ['ti', 'title'] :
@@ -67,6 +58,7 @@ def topmenu():
         elif command in ['sta','status']:
              status = input("enter a phrase(Open/Closed): ")
              schedule = schedule.status_text([status])
+<<<<<<< HEAD
         #author Yiwen
         elif command in ['d', 'description']:
             phrase = input("enter a phrase(Open/Closed): ")
@@ -76,6 +68,7 @@ def topmenu():
         elif command in ['ln', 'lastname']:
             lastname = input("enter last name of instructor: ")
             schedule = schedule.lastname(name)
+=======
 
         #author: Huijie
         #filter by course subject and number(in the form of 'COSI 103A')
@@ -86,8 +79,17 @@ def topmenu():
             coursenum = ans[1]
             schedule = schedule.subject([subject])
             schedule = schedule.coursenum([coursenum])
+            
+        #author: Huijie
+        # filter by course instruction day
+        elif command in ['day']:
+            days = input("enter a string of weekdays(e.g. 'mw' -> Monday and Wednesday): ")
+            daylist = [char for char in days]
+            schedule = schedule.day(daylist)
 
 
+
+>>>>>>> c28a25aae6aa2574db25d2c8d8e2cf464c246016
         else:
             print('command',command,'is not supported')
             continue
