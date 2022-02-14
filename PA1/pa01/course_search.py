@@ -47,6 +47,18 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
+            
+        #author: Jiefang Li
+        #not sure if this is correct ):
+        elif command in ['t', 'title'] :
+            phrase = input("enter a phrase:")
+            schedule = schedule.desciption(phrase in schedule.desciption)
+        #author: Jiefang Li
+        #filter by course status (either open or closed)
+        elif command in ['sta','status']:
+             status = input("enter a phrase(Open/Closed): ")
+             schedule = schedule.status_text([status])
+             
         else:
             print('command',command,'is not supported')
             continue
