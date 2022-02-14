@@ -49,4 +49,9 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
+        
+    #author: Jiefang Li
+    def description(self, phrase):
+        if phrase in self.descriptiion:
+            return self
  
