@@ -29,7 +29,7 @@ def topmenu():
     topmenu is the top level loop of the course search app
     '''
     global schedule
-    while True:
+    while True:         
         command = input(">> (h for help) ")
         if command=='quit':
             return
@@ -59,35 +59,15 @@ def topmenu():
             schedule = schedule.coursenum([coursenum]) 
         #author: Jiefang Li
         #not sure if this is correct ):
-        elif command in ['ti', 'title'] :
+        elif command in ['t', 'title'] :
             phrase = input("enter a phrase:")
-            schedule = schedule.title(phrase)
+            schedule = schedule.desciption(phrase in schedule.desciption)
         #author: Jiefang Li
         #filter by course status (either open or closed)
         elif command in ['sta','status']:
              status = input("enter a phrase(Open/Closed): ")
              schedule = schedule.status_text([status])
-        #author Yiwen
-        elif command in ['d', 'description']:
-            phrase = input("enter a phrase(Open/Closed): ")
-            schedule = schedule.description(phrase)
-        #author Yiwen
-        # filter by last name of the instructor:
-        elif command in ['ln', 'lastname']:
-            lastname = input("enter last name of instructor: ")
-            schedule = schedule.lastname(name)
-
-        #author: Huijie
-        #filter by course subject and number(in the form of 'COSI 103A')
-        elif command in ['c', 'course']:
-            course = input("enter a course number(in the form of 'COSI 103A'):")
-            ans = number.split(' ')
-            subject = ans[0]
-            coursenum = ans[1]
-            schedule = schedule.subject([subject])
-            schedule = schedule.coursenum([coursenum])
-
-
+             
         else:
             print('command',command,'is not supported')
             continue
@@ -100,10 +80,11 @@ def topmenu():
 
 def print_course(course):
     '''
-    print_course prints a brief description of the course
+    print_course prints a brief description of the course 
     '''
     print(course['subject'],course['coursenum'],course['section'],
           course['name'],course['term'],course['instructor'])
 
 if __name__ == '__main__':
     topmenu()
+
