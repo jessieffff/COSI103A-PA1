@@ -47,7 +47,16 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject:")
             schedule = schedule.subject([subject])
-            
+        #author: Qing Liu
+        #enter an instructor
+        elif command in ['i','instructor']:
+            instructor = input("enter a instructor:")
+            schedule = schedule.instructor([instructor]) 
+        #author: Qing Liu
+        #enter an instructor
+        elif command in ['coursenum']:
+            coursenum = input("enter a coursenum:")
+            schedule = schedule.coursenum([coursenum]) 
         #author: Jiefang Li
         #not sure if this is correct ):
         elif command in ['t', 'title'] :
