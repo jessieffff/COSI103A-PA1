@@ -89,12 +89,7 @@ class Schedule():
         schedule = self.email(lastNameOrEmails)
         return schedule
 
-    #author: Qing Liu
-    def coursenum(self, coursenums):
-        schedule = self.coursenums(coursenums)
-        return schedule
-    
-    #author: Qing Liu
-    def coursenums(self,coursenums):
-        ''' email returns the courses by a particular course number'''
-        return Schedule([course for course in self.courses if course['coursenum'] in coursenums])
+    # author: Qing Liu
+    # classes that have a starting time greater than a given starting time
+    def starting_time_greater_than(self, startingTimes):
+        return Schedule([course for course in self.courses for startingTime in startingTimes if len(course['times'])!=0 and course['times'][0].get('start') >= startingTime])

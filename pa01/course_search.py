@@ -53,10 +53,10 @@ def topmenu():
             instructor = input("enter a instructor:")
             schedule = schedule.instructor([instructor]) 
         #author: Qing Liu
-        #enter an instructor
-        elif command in ['coursenum']:
-            coursenum = input("enter a coursenum:")
-            schedule = schedule.coursenum([coursenum]) 
+        #enter a starting time
+        elif command in ['startingTime']:
+            startingTime = int(input("enter a minimum starting time:"))
+            schedule = schedule.starting_time_greater_than([startingTime]) 
         #author: Jiefang Li
         #not sure if this is correct ):
         elif command in ['ti', 'title'] :
