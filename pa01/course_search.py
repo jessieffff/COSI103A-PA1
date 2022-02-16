@@ -87,6 +87,12 @@ def topmenu():
             schedule = schedule.subject([subject])
             schedule = schedule.coursenum([coursenum])
 
+        #author: Huijie
+        # filter by course instruction day
+        elif command in ['day']:
+            days = input("enter a string of weekdays(e.g. 'mw' -> Monday and Wednesday): ")
+            daylist = [char for char in days]
+            schedule = schedule.day(daylist)
 
         else:
             print('command',command,'is not supported')
@@ -97,6 +103,7 @@ def topmenu():
         for course in schedule.courses[:10]:
             print_course(course)
         print('\n'*3)
+
 
 def print_course(course):
     '''
