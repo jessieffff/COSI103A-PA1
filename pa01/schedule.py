@@ -53,8 +53,8 @@ class Schedule():
 
     #author: Jiefang Li
     def description(self, phrase):
-        if phrase in self.descriptiion:
-            return self
+        if phrase in self.description:
+            return Schedule([course for course in self.courses if phrase in course['description']])
 
     # author: Yiwen Luo
     def title(self, phrase):

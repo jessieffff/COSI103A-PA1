@@ -45,8 +45,56 @@ class Schedule():
 
     def sort(self,field):
         if field=='subject':
-            return Schedule(sorted(self.courses, key= lambda course: course['subject']))
+            return Schedule(sorted(self.courses, key= lambda course: course['name']))
         else:
             print("can't sort by "+str(field)+" yet")
             return self
- 
+
+
+    #author: Jiefang Li
+    def description(self, phrase):
+        if phrase in self.description:
+            return Schedule([course for course in self.courses if phrase in course['description']])
+
+    # author: Yiwen Luo
+    def title(self, phrase):
+        return Schedule([course for course in self.courses if phrase in course['name']])
+
+    # author: Yiwen
+    # classes that are currently full or only has capacity of less or equal to n
+    def capacity_less_than(self, capacity):
+        return Schedule([course for course in self.courses if course['enrolled'] >= course['limit'] - capture ])
+    
+    
+    
+    # author: Huijie
+    def day(self, weekday):
+        '''day filters the courses containing the specific instruction days. weekday should be in format of ['m', 'w', ...] '''
+        return Schedule([course for course in self.courses if len(course['times'])!=0 and all(x in course['times'][0].get('days') for x in weekday)])
+    
+    # author: Huijie
+    def coursenum(self, coursenumber):
+        ''' coursenum filters the courses by coursenum '''
+        return Schedule([course for course in self.courses if course['coursenum'] in coursenumber])
+    
+    
+    #author: Qing Liu
+    def instructor(self, lastNameOrEmails):
+        # First try last name
+        schedule = self.lastname(lastNameOrEmails)
+        if len(schedule.courses) > 0:
+            return schedule
+        
+        # Second try email
+        schedule = self.email(lastNameOrEmails)
+        return schedule
+
+    #author: Qing Liu
+    def coursenum(self, coursenums):
+        schedule = self.coursenums(coursenums)
+        return schedule
+    
+    #author: Qing Liu
+    def coursenums(self,coursenums):
+        ''' email returns the courses by a particular course number'''
+        return Schedule([course for course in self.courses if course['coursenum'] in coursenums])
