@@ -86,13 +86,6 @@ def topmenu():
             coursenum = ans[1]
             schedule = schedule.subject([subject])
             schedule = schedule.coursenum([coursenum])
-            
-        #author: Huijie
-        # filter by course instruction day
-        elif command in ['day']:
-            days = input("enter a string of weekdays(e.g. 'mw' -> Monday and Wednesday): ")
-            daylist = [char for char in days]
-            schedule = schedule.day(daylist)
 
 
         else:
