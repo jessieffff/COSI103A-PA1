@@ -48,15 +48,16 @@ class Schedule():
         return Schedule([course for course in self.courses if course['subject'] in subjects])
 
     def sort(self, field):
+
         if field == 'subject':
             return Schedule(sorted(self.courses, key=lambda course: course['name']))
-        else:
-            print("can't sort by "+str(field)+" yet")
-            return self
+
+        print("can't sort by "+str(field)+" yet")
+        return self
 
     # author: Jiefang Li
-
     def description(self, phrase):
+
         if phrase in self.description:
             return Schedule([course for course in self.courses if phrase in course['description']])
 
