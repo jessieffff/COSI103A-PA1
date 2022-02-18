@@ -51,7 +51,6 @@ def topmenu():
         # author: Qing Liu
         # enter an instructor
         elif command in ['i', 'instructor']:
-
             instructor = input("enter a instructor:")
             schedule = schedule.instructor([instructor])
         # author: Qing Liu
