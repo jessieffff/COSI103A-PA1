@@ -46,42 +46,42 @@ def topmenu():
             schedule = schedule.term([term]).sort('subject')
         elif command in ['s','subject']:
             subject = input("enter a subject:")
-            schedule = schedule.subject([subject])
+            schedule = schedule.subject([subject]) 
         #author: Qing Liu
         #enter an instructor
         elif command in ['i','instructor']:
-            instructor = input("enter a instructor:")
-            schedule = schedule.instructor([instructor]) 
+            instructor = input("enter a instructor lastname or email:")
+            if "edu" in instructor:
+                schedule = schedule.email([instructor]) 
+            else:
+                schedule = schedule.lastname([instructor]) 
         #author: Qing Liu
         #enter a starting time
         elif command in ['startingTime']:
             startingTime = int(input("enter a minimum starting time:"))
             schedule = schedule.starting_time_greater_than([startingTime]) 
         #author: Jiefang Li
-        #not sure if this is correct ):
         elif command in ['ti', 'title'] :
             phrase = input("enter a phrase:")
             schedule = schedule.title(phrase)
         #author: Jiefang Li
         #filter by course status (either open or closed)
         elif command in ['sta','status']:
-             status = input("enter a phrase(Open/Closed): ")
-             schedule = schedule.status_text([status])
+            status = input("enter a phrase(Open/Closed): ")
+            schedule = schedule.status_text(status)
         #author Yiwen
         elif command in ['d', 'description']:
-            phrase = input("enter a phrase(Open/Closed): ")
+            phrase = input("enter a phrase about the course description: ")
             schedule = schedule.description(phrase)
-        #author Yiwen
-        # filter by last name of the instructor:
-        elif command in ['ln', 'lastname']:
-            lastname = input("enter last name of instructor: ")
-            schedule = schedule.lastname(name)
-
+        #auothor Yiwen
+        elif command in ['f', 'firstname']:
+            instructor = input("enter a first name of instructor: ")
+            schedule = schedule.firstname([instructor])
         #author: Huijie
         #filter by course subject and number(in the form of 'COSI 103A')
         elif command in ['c', 'course']:
             course = input("enter a course number(in the form of 'COSI 103A'):")
-            ans = number.split(' ')
+            ans = course.split(' ')
             subject = ans[0]
             coursenum = ans[1]
             schedule = schedule.subject([subject])
