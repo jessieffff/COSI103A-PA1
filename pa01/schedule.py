@@ -75,7 +75,7 @@ class Schedule():
         '''day filters the courses containing the specific instruction days. weekday should be in format of ['m', 'w', ...] '''
         return Schedule([course for course in self.courses if len(course['times']) != 0 and all(x in course['times'][0].get('days') for x in weekday)])
 
-    # author: Huijie
+    # author: Huijie Liu
     def coursenum(self, coursenumber):
         ''' coursenum filters the courses by coursenum '''
 
