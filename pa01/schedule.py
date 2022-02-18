@@ -78,7 +78,7 @@ class Schedule():
 
         if phrase in self.description:
             return Schedule([course for course in self.courses if phrase in course['description']])
->>>>>>> 6c4588fa2464a6bc0140baba7fd0de7482655719
+
 
     # author: Yiwen Luo
     def title(self, phrase):
@@ -96,7 +96,7 @@ class Schedule():
         return Schedule([course for course in self.courses if course['instructor'][0] in names])
 =======
         return Schedule([course for course in self.courses if course['enrolled'] >= course['limit'] - capture])
->>>>>>> 6c4588fa2464a6bc0140baba7fd0de7482655719
+
 
     # author: Huijie
 
@@ -110,7 +110,7 @@ class Schedule():
         return Schedule([course for course in self.courses if len(course['times']) != 0 and all(x in course['times'][0].get('days') for x in weekday)])
 
     # author: Huijie Liu
->>>>>>> 6c4588fa2464a6bc0140baba7fd0de7482655719
+
     def coursenum(self, coursenumber):
         ''' coursenum filters the courses by coursenum '''
 
@@ -140,4 +140,4 @@ class Schedule():
     # classes that have a starting time greater than a given starting time
     def starting_time_greater_than(self, startingTimes):
         return Schedule([course for course in self.courses for startingTime in startingTimes if len(course['times']) != 0 and course['times'][0].get('start') >= startingTime])
->>>>>>> 6c4588fa2464a6bc0140baba7fd0de7482655719
+
