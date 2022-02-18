@@ -99,16 +99,6 @@ def topmenu():
             lastname = input("enter last name of instructor: ")
             schedule = schedule.lastname(lastname)
 
-        #author: Huijie Liu
-        # filter by course subject and number(in the form of 'COSI 103A')
-        elif command in ['c', 'course']:
-            course = input("enter a course number(in the form of 'COSI 103A'):")
-            ans = course.split(' ')
-
-            course = input(
-                "enter a course number(in the form of 'COSI 103A'):")
-            ans = course.split(' ')
-
         #author Yiwen
         elif command in ['d', 'description']:
             phrase = input("enter a phrase about the course description: ")
@@ -122,7 +112,6 @@ def topmenu():
         elif command in ['c', 'course']:
             course = input("enter a course number(in the form of 'COSI 103A'):")
             ans = course.split(' ')
-
             subject = ans[0]
             coursenum = ans[1]
             schedule = schedule.subject([subject])
@@ -131,11 +120,7 @@ def topmenu():
         #author: Huijie Liu
         # filter by course instruction day
         elif command in ['day']:
-
-            days = input( "enter a string of weekdays(e.g. 'mw' -> Monday and Wednesday): ")
-
             days = input("enter a string of weekdays(e.g. 'mw' -> Monday and Wednesday): ")
-
             daylist = [char for char in days]
             schedule = schedule.day(daylist)
 
