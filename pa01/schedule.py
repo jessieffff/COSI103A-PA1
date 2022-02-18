@@ -5,48 +5,43 @@ by filtering, mapping, printing, etc.
 
 import json
 
-
 class Schedule():
     '''
     Schedule represent a list of Brandeis classes with operations for filtering
     '''
-
-    def __init__(self, courses=()):
+    def __init__(self,courses=()):
         ''' courses is a tuple of the courses being offered '''
         self.courses = courses
 
     def load_courses(self):
         ''' load_courses reads the course data from the courses.json file'''
         print('getting archived regdata from file')
-        with open("courses20-21.json", "r", encoding='utf-8') as jsonfile:
+        with open("courses20-21.json","r",encoding='utf-8') as jsonfile:
             courses = json.load(jsonfile)
         for course in courses:
             course['instructor'] = tuple(course['instructor'])
-            course['coinstructors'] = [tuple(f)
-                                       for f in course['coinstructors']]
-        # making it a tuple means it is immutable
-        self.courses = tuple(courses)
+            course['coinstructors'] = [tuple(f) for f in course['coinstructors']]
+        self.courses = tuple(courses)  # making it a tuple means it is immutable
 
-    def lastname(self, names):
+    def lastname(self,names):
         ''' lastname returns the courses by a particular instructor last name'''
         return Schedule([course for course in self.courses if course['instructor'][1] in names])
 
-    def email(self, emails):
+    def email(self,emails):
         ''' email returns the courses by a particular instructor email'''
         return Schedule([course for course in self.courses if course['instructor'][2] in emails])
 
-    def term(self, terms):
+    def term(self,terms):
         ''' email returns the courses in a list of term'''
         return Schedule([course for course in self.courses if course['term'] in terms])
 
-    def enrolled(self, vals):
+    def enrolled(self,vals):
         ''' enrolled filters for enrollment numbers in the list of vals'''
         return Schedule([course for course in self.courses if course['enrolled'] in vals])
 
-    def subject(self, subjects):
+    def subject(self,subjects):
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if course['subject'] in subjects])
-
 
     def sort(self,field):
         '''sort course by keywords'''
@@ -55,9 +50,8 @@ class Schedule():
         print("can't sort by "+str(field)+" yet")
         return self
 
-    # author: Jiefang Li
+    #author: Jiefang Li
     def description(self, phrase):
-
         '''description filter for key phrase in course description'''
         return Schedule([course for course in self.courses if phrase in course['description']])
 
@@ -73,7 +67,6 @@ class Schedule():
 
     # author: Yiwen Luo
     def capacity_less_than(self, capacity):
-
         '''classes that are currently full or only has capacity of less or equal to n'''
         return Schedule([course for course in self.courses if course['enrolled'] >= course['limit'] - capacity])
 
@@ -81,7 +74,6 @@ class Schedule():
     def firstname(self,names):
         ''' firstname returns the courses by a particular instructor first name'''
         return Schedule([course for course in self.courses if course['instructor'][0] in names])
-
 
     # author: Huijie Liu
 
@@ -91,18 +83,18 @@ class Schedule():
         return Schedule([course for course in self.courses if len(course['times'])!=0 and all(x in course['times'][0].get('days') for x in weekday)])
 
 
-    # author: Huijie Liu
-
+    # author: Huijie
     def coursenum(self, coursenumber):
         ''' coursenum filters the courses by coursenum '''
-
         return Schedule([course for course in self.courses if course['coursenum'] in coursenumber])
+
 
 
     # author: Qing Liu
     def starting_time_greater_than(self, starting_times):
         ''' classes that have a starting time greater than a given starting time '''
         return Schedule([course for course in self.courses for starting_time in starting_times if len(course['times'])!=0 and course['times'][0].get('start') >= starting_time])
+
 
     # author: Qing Liu
     def instructor(self, lastname_or_emails):
