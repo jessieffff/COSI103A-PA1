@@ -46,20 +46,20 @@ def topmenu():
             schedule = schedule.term([term]).sort('subject')
         elif command in ['s','subject']:
             subject = input("enter a subject:")
- 
+
         #author: Qing Liu
         #enter an instructor
         elif command in ['i','instructor']:
             instructor = input("enter a instructor lastname or email:")
             if "edu" in instructor:
-                schedule = schedule.email([instructor]) 
+                schedule = schedule.email([instructor])
             else:
-                schedule = schedule.lastname([instructor]) 
+                schedule = schedule.lastname([instructor])
         #author: Qing Liu
         #enter a starting time
         elif command in ['starting_time']:
             starting_time = int(input("enter a minimum starting time:"))
-            schedule = schedule.starting_time_greater_than([starting_time]) 
+            schedule = schedule.starting_time_greater_than([starting_time])
         #author: Jiefang Li
         elif command in ['ti', 'title'] :
             phrase = input("enter a phrase:")
@@ -75,7 +75,6 @@ def topmenu():
         elif command in ['i', 'instructor']:
             instructor = input("enter a instructor:")
             schedule = schedule.instructor([instructor])
-        
         # author: Jiefang Li
         # not sure if this is correct ):
         elif command in ['ti', 'title']:
@@ -149,11 +148,12 @@ def topmenu():
         for course in schedule.courses[:10]:
             print_course(course)
         print('\n'*3)
+        
 
 
 def print_course(course):
     '''
-    print_course prints a brief description of the course
+    print_course prints a brief description of the course requested by the user
     '''
     print(course['subject'],course['coursenum'],course['section'],
           course['name'],course['term'],course['instructor'])
@@ -161,4 +161,4 @@ def print_course(course):
 if __name__ == '__main__':
     topmenu()
 
-### this is used for testing git push by Jiefang 
+### this is used for testing git push by Jiefang
