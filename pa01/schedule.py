@@ -78,9 +78,11 @@ class Schedule():
     # author: Huijie
     def coursenum(self, coursenumber):
         ''' coursenum filters the courses by coursenum '''
+
         return Schedule([course for course in self.courses if course['coursenum'] in coursenumber])
 
     # author: Qing Liu
+
     def instructor(self, lastNameOrEmails):
         # First try last name
         schedule = self.lastname(lastNameOrEmails)
