@@ -47,26 +47,26 @@ class Schedule():
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if course['subject'] in subjects])
 
-<<<<<<< HEAD
+
     def sort(self,field):
         '''sort course by keywords'''
         if field=='subject':
             return Schedule(sorted(self.courses, key= lambda course: course['name']))
         print("can't sort by "+str(field)+" yet")
         return self
-=======
+
     def sort(self, field):
 
         if field == 'subject':
             return Schedule(sorted(self.courses, key=lambda course: course['name']))
->>>>>>> 6c4588fa2464a6bc0140baba7fd0de7482655719
+
 
         print("can't sort by "+str(field)+" yet")
         return self
 
     # author: Jiefang Li
     def description(self, phrase):
-<<<<<<< HEAD
+
         '''description filter for key phrase in course description'''
         return Schedule([course for course in self.courses if phrase in course['description']])
 
@@ -74,7 +74,7 @@ class Schedule():
     def status_text(self, phrase):
         '''course status filter for open or clsoed course'''
         return Schedule([course for course in self.courses if phrase in course['status_text']])
-=======
+
 
         if phrase in self.description:
             return Schedule([course for course in self.courses if phrase in course['description']])
@@ -87,14 +87,14 @@ class Schedule():
 
     # author: Yiwen
     def capacity_less_than(self, capacity):
-<<<<<<< HEAD
+
         '''classes that are currently full or only has capacity of less or equal to n'''
         return Schedule([course for course in self.courses if course['enrolled'] >= course['limit'] - capacity])
     # author: Yiwen
     def firstname(self,names):
         ''' firstname returns the courses by a particular instructor first name'''
         return Schedule([course for course in self.courses if course['instructor'][0] in names])
-=======
+
         return Schedule([course for course in self.courses if course['enrolled'] >= course['limit'] - capture])
 
 
@@ -102,11 +102,11 @@ class Schedule():
 
     def day(self, weekday):
         '''day filters the courses containing the specific instruction days. weekday should be in format of ['m', 'w', ...] '''
-<<<<<<< HEAD
+
         return Schedule([course for course in self.courses if len(course['times'])!=0 and all(x in course['times'][0].get('days') for x in weekday)])
 
     # author: Huijie
-=======
+
         return Schedule([course for course in self.courses if len(course['times']) != 0 and all(x in course['times'][0].get('days') for x in weekday)])
 
     # author: Huijie Liu
@@ -115,14 +115,14 @@ class Schedule():
         ''' coursenum filters the courses by coursenum '''
 
         return Schedule([course for course in self.courses if course['coursenum'] in coursenumber])
-<<<<<<< HEAD
+
 
     # author: Qing Liu
     def starting_time_greater_than(self, starting_times):
         ''' classes that have a starting time greater than a given starting time '''
         return Schedule([course for course in self.courses for starting_time in starting_times if len(course['times'])!=0 and course['times'][0].get('start') >= starting_time])
     
-=======
+
 
     # author: Qing Liu
 
