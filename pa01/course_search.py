@@ -47,7 +47,7 @@ def topmenu():
             schedule = schedule.term([term]).sort('subject')
         elif command in ['s', 'subject']:
             subject = input("enter a subject:")
-<<<<<<< HEAD
+
             schedule = schedule.subject([subject]) 
         #author: Qing Liu
         #enter an instructor
@@ -59,31 +59,25 @@ def topmenu():
                 schedule = schedule.lastname([instructor]) 
         #author: Qing Liu
         #enter a starting time
-        elif command in ['startingTime']:
-            startingTime = int(input("enter a minimum starting time:"))
-            schedule = schedule.starting_time_greater_than([startingTime]) 
+        elif command in ['starting_time']:
+            starting_time = int(input("enter a minimum starting time:"))
+            schedule = schedule.starting_time_greater_than([starting_time]) 
         #author: Jiefang Li
         elif command in ['ti', 'title'] :
             phrase = input("enter a phrase:")
             schedule = schedule.title(phrase)
         #author: Jiefang Li
-        #filter by course status (either open or closed)
+        #filter by course status (either open or closed)s
         elif command in ['sta','status']:
             status = input("enter a phrase(Open/Closed): ")
             schedule = schedule.status_text(status)
-        #author Yiwen
-=======
-            schedule = schedule.subject([subject])
+
         # author: Qing Liu
         # enter an instructor
         elif command in ['i', 'instructor']:
             instructor = input("enter a instructor:")
             schedule = schedule.instructor([instructor])
-        # author: Qing Liu
-        # enter a starting time
-        elif command in ['startingTime']:
-            startingTime = int(input("enter a minimum starting time:"))
-            schedule = schedule.starting_time_greater_than([startingTime])
+        
         # author: Jiefang Li
         # not sure if this is correct ):
         elif command in ['ti', 'title']:
@@ -94,45 +88,38 @@ def topmenu():
         elif command in ['sta', 'status']:
             status = input("enter a phrase(Open/Closed): ")
             schedule = schedule.status_text([status])
-        # author Yiwen
->>>>>>> 6c4588fa2464a6bc0140baba7fd0de7482655719
+        # author Yiwen Luo
         elif command in ['d', 'description']:
             phrase = input("enter a phrase about the course description: ")
             schedule = schedule.description(phrase)
-<<<<<<< HEAD
-        #auothor Yiwen
+        #auothor Yiwen Luo
         elif command in ['f', 'firstname']:
             instructor = input("enter a first name of instructor: ")
             schedule = schedule.firstname([instructor])
-=======
-        # author Yiwen
+        # author Yiwen Luo
         # filter by last name of the instructor:
         elif command in ['ln', 'lastname']:
             lastname = input("enter last name of instructor: ")
-            schedule = schedule.lastname(name)
+            schedule = schedule.lastname(lastname)
 
->>>>>>> 6c4588fa2464a6bc0140baba7fd0de7482655719
-        #author: Huijie
+        #author: Huijie Liu
         # filter by course subject and number(in the form of 'COSI 103A')
         elif command in ['c', 'course']:
-<<<<<<< HEAD
             course = input("enter a course number(in the form of 'COSI 103A'):")
             ans = course.split(' ')
-=======
+
             course = input(
                 "enter a course number(in the form of 'COSI 103A'):")
-            ans = number.split(' ')
->>>>>>> 6c4588fa2464a6bc0140baba7fd0de7482655719
+            ans = course.split(' ')
             subject = ans[0]
             coursenum = ans[1]
             schedule = schedule.subject([subject])
             schedule = schedule.coursenum([coursenum])
 
-        #author: Huijie
+        #author: Huijie Liu
         # filter by course instruction day
         elif command in ['day']:
-            days = input(
-                "enter a string of weekdays(e.g. 'mw' -> Monday and Wednesday): ")
+            days = input( "enter a string of weekdays(e.g. 'mw' -> Monday and Wednesday): ")
             daylist = [char for char in days]
             schedule = schedule.day(daylist)
 
